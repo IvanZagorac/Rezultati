@@ -1,0 +1,46 @@
+<div id="mainWrapper" class="container" >
+  <h2>Popis svih rezultata</h2>
+  <div *ngFor="let result of results,let i=index">
+      <div class="oneSport">
+        <div *ngIf="editingIndex!=i"  class="name">
+          <div *ngFor="let club of clubs">
+            <div *ngIf="club._id==result.clubA">
+              {{club.name}} {{result.scoreA}}:
+            </div>
+            <div *ngIf="club._id==result.clubB">
+              {{result.scoreB}} {{club.name}}
+            </div>
+          </div>
+        </div>
+        <button class="red" type="submit" (click)="deleteResult(i)" >Remove</button>
+
+      </div><hr/>
+  </div>
+  <button class="gumbi" type="submit" (click)="add=!add">Add new result</button>
+
+
+  <div class="well row" *ngIf="add">
+    <div class="col-md-4">
+      <label>ClubA:</label>
+      <select [(ngModel)]="resultt.clubA">
+        <option *ngFor="let club of clubs" [value]="club._id">{{club.name}}</option>
+      </select><br/>
+      <label>ClubA:</label>
+      <select [(ngModel)]="resultt.clubB">
+        <option *ngFor="let club of clubs" [value]="club._id">{{club.name}}</option>
+      </select>
+      <fieldset class="form-group">
+        <label>ScoreA:</label><br/>
+        <input class="form-control" type="number" [(ngModel)]="resultt.scoreA"/>
+      </fieldset>
+      <fieldset class="form-group">
+        <label>ScoreB:</label><br/>
+        <input class="form-control" type="number" [(ngModel)]="resultt.scoreB"/>
+      </fieldset>
+      <button class="btn btn-success" (click)="addResult()">Send</button>
+    </div>
+
+  </div>
+
+</div>
+

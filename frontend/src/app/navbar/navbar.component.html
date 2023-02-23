@@ -1,0 +1,12 @@
+<nav class="navbar1 ">
+  <div >
+    <ul class="navbar-ul ">
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['sports']">Sportovi</a></li>
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['league']">Lige</a></li>
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['club']">Utakmice</a></li>
+      <li class="nav-item" ><a class="nav-link" [routerLink]="['auth/login']" *ngIf="!authenticated">Login</a></li>
+      <li class="nav-item" ><a class="nav-link" (click)="logout()" *ngIf="authenticated">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+

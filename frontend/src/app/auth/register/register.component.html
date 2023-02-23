@@ -1,0 +1,94 @@
+<div class="well">
+  <div id="mainWrapper" class="container">
+    <h2 class="formNaslov">Register form:</h2>
+    <div class="col-lg-9 col-md-12 col-sm-12">
+      <form novalidate #f="ngForm">
+
+        <fieldset class="f-group" ngModelGroup="username">
+          <div  class="form-group">
+            <label>Username:</label>
+            <input placeholder="Username" type="text"
+                   [ngClass]="{
+                  'is-invalid': username.invalid && (username.dirty || username.touched),
+                  'is-valid': username.valid && (username.dirty || username.touched)
+                }"
+                   class="form-control" [(ngModel)]="new.username" name="username" required minlength="4" #username="ngModel">
+          </div>
+          <div class="form-control-feedback"
+               *ngIf="username.errors && (username.dirty || username.touched)">
+            <p class="red" *ngIf="username.errors['required']">Username is required</p>
+            <p class="red" *ngIf="username.errors['minlength']">Username must be at least the 4 character</p>
+          </div>
+        </fieldset>
+
+
+        <fieldset class="f-group" ngModelGroup="name">
+          <div class="form-group">
+            <label>Name:</label>
+            <input placeholder="Name" type="text"
+                   [ngClass]="{
+                  'is-invalid': name.invalid && (name.dirty || name.touched),
+                  'is-valid': name.valid && (name.dirty || name.touched)
+             }"
+                   class="form-control" [(ngModel)]="new.name" name="name" required #name="ngModel">
+          </div>
+          <div class="form-control-feedback"
+               *ngIf="name.errors && (name.dirty || name.touched)">
+            <p class="red" *ngIf="name.errors['required']">Name is required</p>
+          </div>
+        </fieldset>
+
+
+        <div class="form-group">
+          <label>Email:</label>
+          <input placeholder="Email" type="email"
+                 [ngClass]="{
+                  'is-invalid': email.invalid && (email.dirty || email.touched),
+                  'is-valid': email.valid && (email.dirty || email.touched)
+             }"
+                 class="form-control" name="email" pattern="[^ @]*@[^ @]*"  required [(ngModel)]="new.email" #email="ngModel">
+          <div class="form-control-feedback"
+               *ngIf="email.errors && (email.dirty || email.touched)">
+            <p class="red" *ngIf="email.errors['required']">Email is required</p>
+            <p class="red" *ngIf="email.errors['pattern']">Email must contain at least the @ character</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Password:</label>
+          <input placeholder="Password" type="password"
+                 [ngClass]="{
+                  'is-invalid': password.invalid && (password.dirty || password.touched),
+                  'is-valid': password.valid && (password.dirty || password.touched)
+             }"
+                 class="form-control" [(ngModel)]="new.password" name="password" required minlength="4" #password="ngModel">
+        </div>
+        <div class="form-control-feedback"
+             *ngIf="password.errors && (password.dirty || password.touched)">
+          <p class="red" *ngIf="password.errors['required']">Password is required</p>
+          <p class="red" *ngIf="password.errors['minlength']">Password must contain at least the 4 characters</p>
+        </div>
+
+        <div class="form-group">
+          <label>Repeat password:</label>
+          <input placeholder="Repeat password" type="password"
+                 [ngClass]="{
+                  'is-invalid': rePass.invalid && (rePass.dirty || rePass.touched),
+                  'is-valid': rePass.valid && (rePass.dirty || rePass.touched)
+             }"
+                 class="form-control" [(ngModel)]="new.repeatPass" name="rePass" required minlength="4" #rePass="ngModel">
+        </div>
+        <div class="form-control-feedback"
+             *ngIf="rePass.errors && (rePass.dirty || rePass.touched)">
+          <p class="red" *ngIf="rePass.errors['required']">Repeat password is required</p>
+          <p class="red" *ngIf="rePass.errors['minlength']">Repeat password must contain at least the 4 characters</p>
+          <p class="red" *ngIf="rePass.errors['matching']">Repeat password does not match</p>
+        </div>
+        <button class="btn btn-success" [disabled]="!f.valid" (click)="register()" >Register</button><br/>
+        <a routerLink="/auth/login">Back to login form</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+

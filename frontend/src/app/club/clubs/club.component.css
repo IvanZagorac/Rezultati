@@ -1,0 +1,38 @@
+#mainWrapper{
+  margin: 0 auto;
+  background-color: #C1C1C1;
+  width: 70%;
+  padding: 20px;
+  max-width: 800px;
+  margin:60px;
+}
+
+.obrub{
+  display:flex;
+}
+
+.gumbi{
+  padding: 5px 20px;
+  background-color: #B6C649 ;
+  color: black;
+  margin-left: 10px;
+  border: 0px;
+}
+.red{
+  padding: 5px 20px;
+  background-color: red ;
+  color: black;
+  margin-left: 10px;
+  border: 0px;
+}
+
+.name{
+  display: flex;
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.oneSport{
+  margin-top: 20px;
+}

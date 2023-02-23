@@ -1,0 +1,24 @@
+<div>
+  <div id="mainWrapper" class="container">
+    <div class="row">
+    <div class=" col-lg-9 col-md-12 col-sm-12" >
+      <h2 class="formNaslov">Login</h2>
+      <form class="signin-form" fxLayout="column" fxLayoutAlign="center center" (submit)="onLogin()" [formGroup]="signinForm">
+        <fieldset class="form-group">
+         <input class="form-control" type="text" formControlName="username" placeholder="Enter username">
+        </fieldset>
+        <fieldset class="form-group">
+          <input class="form-control" type="password" formControlName="password" placeholder="Enter password">
+        </fieldset>
+        <div class="red" *ngIf="errorMessage">{{errorMessage}}</div>
+        <button class="btn btn-success" type="submit" [disabled]="signinForm.invalid" >Login!</button>
+        <a routerLink="/auth/register"> <button class="btn btn-warning" type="submit" >Register!</button></a>
+
+      </form>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+

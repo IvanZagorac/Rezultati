@@ -1,0 +1,34 @@
+<div id="mainWrapper" class="container" >
+  <h2>Odaberite ligu za koju zelite vidjeti rezultat</h2>
+  <div *ngFor="let league of leagues,let i=index">
+    <div *ngIf="league.sportId==id">
+    <div class="oneSport"><a *ngIf="editingIndex!=i"  class="name" [routerLink]="['/league',league._id]" (click)="onLeagueSelected(league)">{{league.name}}({{league.country}})</a>
+      <div *ngIf="editingIndex==i">
+        <fieldset class="form-group">
+          <input class="form-control" type="text" [(ngModel)]="league.name"/>
+          <input class="form-control" type="text" [(ngModel)]="league.country"/>
+        </fieldset>
+      </div>
+      <button class="red" type="submit" (click)="deleteleague(i)" >Remove</button>
+      <button *ngIf="editingIndex!=i"(click)="setEdit(i)" class="gumbi" type="submit" >Edit</button>
+      <button *ngIf="editingIndex==i" (click)="doneEditing(i)"  class="btn btn-warning">Done</button>
+
+    </div><hr/>
+  </div>
+  </div>
+  <button class="gumbi" type="submit" (click)="add=!add">Add new league</button>
+  <div class="well row" *ngIf="add">
+    <div class="col-md-4">
+      <fieldset class="form-group">
+        <label>Name:</label><br/>
+        <input class="form-control" type="text" [(ngModel)]="league.name"/>
+      </fieldset><br/>
+      <fieldset class="form-group">
+        <label>Country:</label><br/>
+        <input class="form-control" type="text" [(ngModel)]="league.country"/>
+      </fieldset><br/>
+      <button class="btn btn-success" (click)="addleague()">Send</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,39 @@
+#mainWrapper{
+  margin: 0 auto;
+  background-color: #C1C1C1;
+  width: 70%;
+  padding: 20px;
+  border-radius: 5%;
+  max-width: 450px;
+  margin:60px;
+}
+
+input{
+  width: 100%;
+}
+
+.formNaslov{
+  color: black;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  color:black;
+}
+
+.red{
+  color:red;
+}
+
+
+label {
+  color:#2C4251;
+}
+@media screen and (min-width: 700px) {
+  #mainWrapper{
+    width: 60%;
+    max-width: 600px;
+    margin-left: 10%;
+  }
+}
